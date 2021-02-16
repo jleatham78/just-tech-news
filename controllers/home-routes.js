@@ -3,6 +3,7 @@ const sequelize = require('../config/connection');
 const { Post, User, Comment } = require('../models');
 
 router.get('/', (req, res) => {
+    console.log(req.sessions);
     res.render('homepage', {
       id: 1,
       post_url: 'https://handlebarsjs.com/guide/',
@@ -14,6 +15,15 @@ router.get('/', (req, res) => {
         username: 'test_user'
       }
     });
+  });
+
+  router.get('/login', (req, res) => {
+    if (req.session.loggedIn) {
+        res.redirect('/');
+        return;
+      }    
+    
+    res.render('login');
   });
 
 module.exports = router;
