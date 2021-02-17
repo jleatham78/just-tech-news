@@ -3,7 +3,7 @@ const sequelize = require('../config/connection');
 const { Post, User, Comment } = require('../models');
 
 router.get('/', (req, res) => {
-    console.log(req.sessions);
+    console.log(req.session);
     res.render('homepage', {
       id: 1,
       post_url: 'https://handlebarsjs.com/guide/',

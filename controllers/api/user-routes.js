@@ -53,7 +53,7 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-    console.log(req.body);
+    console.log('user route');
     User.create({
         username: req.body.username,
         email: req.body.email,
@@ -98,6 +98,17 @@ router.post('/', (req, res) => {
           });
         });
       });
+
+router.post('/logout', (req, res) => {
+    if (req.session.loggedIn) {
+        req.session.destroy(() => {
+            res.status(204).end();
+        });
+    }
+    else {
+        res.status(404).end();
+    }
+});
 
 router.put('/:id', (req, res) => {
     User.update(req.body, {
