@@ -11,7 +11,8 @@
     "type": "git",
     "url": "git+https://github.com/jleatham78/just-tech-news.git"
   },
-  "author": "jleatham",
+  "keywords": [],
+  "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/jleatham78/just-tech-news/issues"
